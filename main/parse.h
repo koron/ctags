@@ -156,6 +156,7 @@ extern void addLanguageAlias (const langType language, const char* alias);
 
 extern void addCorpusFile (const langType language, const char* const spec, vString* const corpus_file, boolean pattern_p);
 extern void addTgEntryForExtension (const langType language, const char* const ext, unsigned char* const tg_table);
+extern void addTgEntryForExtension2 (const langType language, const char* const ext, int * const tg_map);
 extern void addTgEntryForPattern (const langType language, const char* const pattern, unsigned char* const tg_table);
 
 extern void printLanguageMap (const langType language, FILE *fp);

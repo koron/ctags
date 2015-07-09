@@ -1040,6 +1040,21 @@ extern void addTgEntryForExtension (const langType language, const char* const e
 	addTgEntryFull (language, ptrn, tg_table, NULL);
 }
 
+extern void addTgEntryForExtension2 (const langType language, const char* const ext, int * const tg_map)
+{
+	unsigned char *tg_table;
+	int i;
+
+	tg_table = (unsigned char*)calloc (sizeof(unsigned char), 65536);
+	if (tg_table == NULL)
+		error (FATAL,
+				"failed to allocate memory");
+	for (i = 0; tg_map[i] != 0 && tg_map[i + 1] != 0; i += 2)
+		tg_table[tg_map[i]] = tg_map[i + 1];
+	addTgEntryForExtension(language, ext, tg_table);
+	free(tg_table);
+}
+
 static tgTableEntry* freeTgEntry(tgTableEntry *entry)
 {
 	tgTableEntry* r;
