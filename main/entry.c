@@ -82,12 +82,8 @@ tagFile TagFile = {
     { 0, 0, 0 },        /* max */
     { NULL, NULL, 0 },  /* etags */
     NULL,                /* vLine */
-    .cork = FALSE,
-    .corkQueue = {
-	    .queue = NULL,
-	    .length = 0,
-	    .count  = 0
-    }
+    FALSE,
+    { NULL, 0, 0 }
 };
 
 static boolean TagsToStdout = FALSE;

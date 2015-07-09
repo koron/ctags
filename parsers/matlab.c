@@ -15,6 +15,7 @@
 #include <string.h>
 #include "parse.h"
 
+#if 0
 static unsigned char matlab_m_tg_table [65536] =
 {
 	[    2597] =       55, /* N % */
@@ -112,6 +113,7 @@ static unsigned char matlab_m_tg_table [65536] =
 	[   32303] =        1, /* ~ / */
 	[   32317] =        1, /* ~ = */
 };
+#endif
 
 /*
 *   FUNCTION DEFINITIONS
@@ -126,7 +128,9 @@ static void installMatLabRegex (const langType language)
     /* function asdf */
     addTagRegex (language, "^function[ \t]*([a-zA-Z0-9_]+)[^=]*$", "\\1", "f,function", NULL);
 
+#if 0
     addTgEntryForExtension (language, "m", matlab_m_tg_table);
+#endif
 }
 
 extern parserDefinition* MatLabParser (void)

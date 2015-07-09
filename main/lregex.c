@@ -332,7 +332,8 @@ static regexPattern* addCompiledTagCommon (const langType language,
 
 	if (kind_letter)
 	{
-		union cptr c = { .p = NULL };
+		union cptr c;
+		c.p = NULL;
 
 		c.c = kind_letter;
 		kind = hashTableGetItem (set->kinds, c.p);

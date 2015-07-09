@@ -538,4 +538,8 @@ extern int main (int __unused__ argc, char **argv)
 	return 0;
 }
 
+int isblank(int ch) {
+	return ((ch) == ' ' || (ch) == '\t');
+}
+
 /* vi:set tabstop=4 shiftwidth=4: */

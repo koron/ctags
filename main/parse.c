@@ -625,24 +625,24 @@ static const struct taster {
         const char     *msg;
 } eager_tasters[] = {
         {
-		.taste  = extractInterpreter,
-		.msg    = "interpreter",
+		extractInterpreter,
+		"interpreter",
         },
 	{
-		.taste  = extractZshAutoloadTag,
-		.msg    = "zsh autoload tag",
+		extractZshAutoloadTag,
+		"zsh autoload tag",
 	},
         {
-		.taste  = extracEmacsModeAtFirstLine,
-		.msg    = "emacs mode at the first line",
+		extracEmacsModeAtFirstLine,
+		"emacs mode at the first line",
         },
         {
-		.taste  = extractEmacsModeLanguageAtEOF,
-		.msg    = "emacs mode at the EOF",
+		extractEmacsModeLanguageAtEOF,
+		"emacs mode at the EOF",
         },
         {
-		.taste  = extractVimFileType,
-		.msg    = "vim modeline",
+		extractVimFileType,
+		"vim modeline",
         },
 };
 static langType tasteLanguage (struct getLangCtx *glc, const struct taster *const tasters, int n_tasters);
@@ -752,9 +752,9 @@ getFileLanguageInternal (const char *const fileName)
 {
     langType language;
     struct getLangCtx glc = {
-        .fileName = fileName,
-        .input    = NULL,
-        .err      = FALSE,
+        fileName,
+        NULL,
+        FALSE,
     };
     const char* const baseName = baseFilename (fileName);
     char *templateBaseName = NULL;
@@ -1270,7 +1270,7 @@ static kindOption *langKindOption (const langType language, const int flag)
 	return result;
 }
 
-extern boolean isLanguageKindEnabled (langType language, char kind)
+extern boolean isLanguageKindEnabled (const langType language, char kind)
 {
 	const kindOption *kindOpt;
 
@@ -1363,8 +1363,8 @@ extern boolean processKindOption (
 
 	boolean handled = FALSE;
 	struct langKindOptionStruct arg = {
-		.option = option,
-		.parameter = parameter,
+		option,
+		parameter,
 	};
 	langType language;
 

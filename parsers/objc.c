@@ -1135,6 +1135,7 @@ static void findObjcTags (void)
 	fullMethodName = NULL;
 }
 
+#if 0
 static unsigned char objc_m_tg_table [65536] =
 {
 	[    2595] =        7, /* N # */
@@ -1225,13 +1226,16 @@ static unsigned char objc_m_tg_table [65536] =
 	[   31498] =       15, /* { N */
 	[   32010] =       15, /* } N */
 };
+#endif
 
 static void objcInitialize (const langType language)
 {
 	Lang_ObjectiveC = language;
 
 	initKeywordHash ();
+#if 0
 	addTgEntryForExtension (language, "m", objc_m_tg_table);
+#endif
 }
 
 static void objcFinalize (const langType language __unused__)

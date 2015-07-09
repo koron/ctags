@@ -527,8 +527,9 @@ static void createContext (tokenInfo *const scope)
 
 static void dropContext (tokenInfo *const token)
 {
+	vString *endTokenName;
 	verbose ("current context %s; context kind %0d; nest level %0d\n", vStringValue (currentContext->name), currentContext->kind, currentContext->nestLevel);
-	vString *endTokenName = vStringNewInit("end");
+	endTokenName = vStringNewInit("end");
 	if ((currentContext->kind == K_COVERGROUP && strcmp (vStringValue (token->name), "endgroup") == 0) ||
 	    (currentContext->kind == K_BLOCK && currentContext->nestLevel == 0 && strcmp (vStringValue (token->name), vStringValue (endTokenName)) == 0)
 	    )

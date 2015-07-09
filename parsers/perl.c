@@ -378,6 +378,7 @@ static void findPerlTags (void)
 		else if (strncmp((const char*) cp, "package", (size_t) 7) == 0 &&
 				 ('\0' == cp[7] || isspace(cp[7])))
 		{
+			const unsigned char *first;
 			cp += 8;
 			while (isspace (*cp))
 				cp++;
@@ -392,7 +393,7 @@ static void findPerlTags (void)
 				package = vStringNew ();
 			else
 				vStringClear (package);
-			const unsigned char *const first = cp;
+			first = cp;
 			while (*cp && (int) *cp != ';'  &&  !isspace ((int) *cp))
 			{
 				vStringPut (package, (int) *cp);
