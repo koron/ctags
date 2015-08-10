@@ -1223,6 +1223,7 @@ static int objc_m_tg_map[] = {
 	   24415,        1, /* _ _ */
 	   31498,       15, /* { N */
 	   32010,       15, /* } N */
+	   0,            0, /* TERMINATOR */
 };
 
 static void objcInitialize (const langType language)
